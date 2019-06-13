@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "noEmitOnError": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es5",
+    "removeComments": false,
+    "esModuleInterop": true,
+    "outDir": "bin-debug",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": [
+      "es2015",
+      "es5",
+      "dom",
+      "es2015.promise",
+      "esnext"
+    ],
+    "types": ["node"]
+  },
+  "include": [
+    "src"
+  ]
+}
