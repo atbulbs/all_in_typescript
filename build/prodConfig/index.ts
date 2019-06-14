@@ -1,11 +1,11 @@
-import { Entry, Output, RuleSetRule, Options, Plugin, Configuration } from 'webpack'
+import { Entry, Output, RuleSetRule, ExternalsElement, Options, Plugin, Configuration } from 'webpack'
 
 const entry: Entry = require('./entry')
 const output: Output = require('./output')
 const rules: RuleSetRule [] = require('./rules')
 const plugins: Plugin [] = require('./plugins')
 const optimization: Options.Optimization = require('./optimization')
-const externals = require('./externals')
+const externals: ExternalsElement | ExternalsElement [] = require('./externals')
 const devtool: Options.Devtool = require('./devtool')
 
 const prodConfig: Configuration = {
