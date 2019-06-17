@@ -1,3 +1,6 @@
+import { fn_a } from './test'
+fn_a()
+
 window.document.addEventListener('click', () => {
   import(/* webpackPrefetch: true */ './utils')
     .then(({ default: func }) => console.log('test', func(1, 2)))
