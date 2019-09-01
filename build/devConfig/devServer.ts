@@ -7,8 +7,8 @@ const devServerConfig: WebpackDevServer.Configuration = {
     errors: true
   },
   hot: true,
-  open: true,
   useLocalIp: true
+  // open: true,
 }
 
 module.exports = devServerConfig
