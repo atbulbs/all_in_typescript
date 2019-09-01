@@ -1,12 +1,9 @@
 import { Plugin } from 'webpack'
 const webpack = require('webpack')
-const commonPlugins = require('../commonConfig/plugins')
 
-const devPlugins: Plugin[] = [
+const pluginsConfig: Plugin[] = [
   new webpack.HotModuleReplacementPlugin()
 ]
-
-const pluginsConfig: Plugin[] = [...commonPlugins, ...devPlugins]
 
 module.exports = pluginsConfig
 
