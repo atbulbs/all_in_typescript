@@ -2,6 +2,8 @@ import Vue from 'vue'
 import { fn_a } from './test'
 import App from './app.vue'
 import router from './router'
+import vwAdjust from './libs/vw_adjust'
+vwAdjust()
 
 Vue.config.productionTip = false
 

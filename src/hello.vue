@@ -26,6 +26,6 @@
 
 <style lang="stylus" scoped>
   .hello 
-    width 100%
+    width 375px
     text-align center
 </style>
