@@ -1,4 +1,4 @@
-A webpack config in TypeScript. Async import, code split and tree shaking are suported. Welcome star:star:  . Happy Hacking :smile:
+A webpack config in TypeScript. Async import, code split and tree shaking are supported. Welcome star:star:  . Happy Hacking :smile:
 
 # all_in_typescript
 ```bash
