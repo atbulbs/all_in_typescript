@@ -1,21 +1,17 @@
-import Vue from 'vue'
-import { fn_a } from './test'
-import App from './app.vue'
-import router from './router'
-import vwAdjust from './libs/vw_adjust'
-vwAdjust()
 
-Vue.config.productionTip = false
+import Phaser from 'phaser'
+import IndexScene from './scenes/index_scene'
+console.warn('phaser', Phaser)
 
-new Vue({
-  el: '#app',
-  render: h => h(App),
-  router
+const game: Phaser.Game = new Phaser.Game({
+  type: Phaser.WEBGL,
+  width: window.innerWidth,
+  height: window.innerHeight,
+  resolution: window.devicePixelRatio || 1,
+  autoFocus: true,
+  transparent: true,
 })
 
-fn_a()
+game.scene.add('IndexScene', IndexScene, true)
 
-window.document.addEventListener('click', () => {
-  import(/* webpackPrefetch: true */ './utils')
-    .then(({ default: func }) => console.log('test', func(1, 2)))
-})
+

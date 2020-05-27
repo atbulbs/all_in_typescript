@@ -19,6 +19,8 @@
     "types": ["node"]
   },
   "include": [
-    "src"
+    "src",
+    "node_modules/phaser/types/phaser.d.ts",
+    "node_modules/phaser/types/spine-canvas.d.ts", "components"
   ]
 }
