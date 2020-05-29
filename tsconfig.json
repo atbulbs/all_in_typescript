@@ -1,26 +1,74 @@
+// {
+//   "compilerOptions": {
+//     "noEmitOnError": true,
+//     "moduleResolution": "node",
+//     // "module": "ES2015",
+//     "module": "esnext",
+//     "target": "es2015",
+//     "removeComments": false,
+//     "esModuleInterop": true,
+//     "outDir": "bin-debug",
+//     "allowSyntheticDefaultImports": true,
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "importHelpers": true,
+//     "lib": [
+//       "es2015",
+//       "es5",
+//       "dom",
+//       "es2015.promise",
+//       "esnext"
+//     ],
+//     "types": ["node"]
+//   },
+//   "include": [
+//     "src",
+//     "node_modules/phaser/types/phaser.d.ts",
+//     "node_modules/phaser/types/spine-canvas.d.ts"
+//   ]
+// }
+
 {
   "compilerOptions": {
-    "noEmitOnError": true,
     "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es5",
-    "removeComments": false,
-    "esModuleInterop": true,
-    "outDir": "bin-debug",
-    "experimentalDecorators": true,
-    "importHelpers": true,
+    "target": "es2015",
+    "module": "ES2015",
     "lib": [
       "es2015",
-      "es5",
-      "dom",
-      "es2015.promise",
-      "esnext"
+      "es2016",
+      "es2017",
+      "dom"
     ],
-    "types": ["node"]
+    "strict": false,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/phaser/types"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "dist/lib",
+    "baseUrl": "./",
+    "paths": {
+      "@root/*": ["./*"],
+      "@/*": ["src/*"],
+      "@test/*": ["test/*"]
+    }
   },
   "include": [
     "src",
+    "test",
     "node_modules/phaser/types/phaser.d.ts",
-    "node_modules/phaser/types/spine-canvas.d.ts", "components"
-  ]
+    "node_modules/phaser/types/spine-canvas.d.ts"
+  ],
+  // 设置 typedoc 参数
+  "typedocOptions": {
+    "inputFiles": ["src"],
+    "out": "guides",
+    "mode": "file",
+    "theme": "default"
+  }
 }

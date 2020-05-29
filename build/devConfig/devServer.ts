@@ -9,6 +9,8 @@ const devServerConfig: WebpackDevServer.Configuration = {
   hot: true,
   useLocalIp: true,
   open: true,
+  // contentBase: '/static',
+  // publicPath: '/static'
 }
 
 module.exports = devServerConfig

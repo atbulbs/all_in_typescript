@@ -3,8 +3,17 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const resolve: Function = require('../utils/resolve')
 const HTMLPlugin = require('html-webpack-plugin')
+const copyPlugins = require('copy-webpack-plugin')
 
 const commonPlugins: Plugin[] = [
+  new copyPlugins(
+    [
+      { from: 'static', to: __dirname + 'static/' }
+    ],
+    {
+      copyUnmodified: true,
+    }
+  ),
   new VueLoaderPlugin(),
   new HTMLPlugin({
     template: resolve('index.html'),
@@ -16,9 +25,9 @@ const commonPlugins: Plugin[] = [
       removeRedundantAttributes: true,
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
-      useShortDoctype: true
+      useShortDoctype: true,
     },
-  })
+  }),
 ]
 
 module.exports = commonPlugins

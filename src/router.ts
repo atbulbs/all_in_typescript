@@ -1,19 +1,19 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+// import Vue from 'vue'
+// import Router from 'vue-router'
 
 
-const HelloComponent = () => import(/* webpackChunkName: 'HelloComponent' */ './hello.vue')
+// const HelloComponent = () => import(/* webpackChunkName: 'HelloComponent' */ './hello.vue')
 
-const routes = [
-  {
-    path: '/',
-    component: HelloComponent,
-    name: 'HelloComponent',
-  }
-]
+// const routes = [
+//   {
+//     path: '/',
+//     component: HelloComponent,
+//     name: 'HelloComponent',
+//   }
+// ]
 
-Vue.use(Router)
+// Vue.use(Router)
 
-export default new Router({
-  routes,
-})
+// export default new Router({
+//   routes,
+// })

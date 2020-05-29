@@ -1,0 +1,335 @@
+{
+	"textures": [
+		{
+			"image": "static/monster_sprite.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 927,
+				"h": 1698
+			},
+			"scale": 0.5,
+			"frames": [
+				{
+					"filename": "fail1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 11,
+						"w": 319,
+						"h": 330
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 319,
+						"h": 330
+					}
+				},
+				{
+					"filename": "fail15.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 11,
+						"w": 319,
+						"h": 330
+					},
+					"frame": {
+						"x": 322,
+						"y": 1,
+						"w": 319,
+						"h": 330
+					}
+				},
+				{
+					"filename": "fail7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 4,
+						"w": 283,
+						"h": 337
+					},
+					"frame": {
+						"x": 643,
+						"y": 1,
+						"w": 283,
+						"h": 337
+					}
+				},
+				{
+					"filename": "fail14.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 10,
+						"w": 319,
+						"h": 331
+					},
+					"frame": {
+						"x": 1,
+						"y": 333,
+						"w": 319,
+						"h": 331
+					}
+				},
+				{
+					"filename": "fail13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 9,
+						"w": 319,
+						"h": 332
+					},
+					"frame": {
+						"x": 322,
+						"y": 333,
+						"w": 319,
+						"h": 332
+					}
+				},
+				{
+					"filename": "fail6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 3,
+						"w": 283,
+						"h": 338
+					},
+					"frame": {
+						"x": 643,
+						"y": 340,
+						"w": 283,
+						"h": 338
+					}
+				},
+				{
+					"filename": "fail11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 7,
+						"w": 309,
+						"h": 334
+					},
+					"frame": {
+						"x": 1,
+						"y": 666,
+						"w": 309,
+						"h": 334
+					}
+				},
+				{
+					"filename": "fail12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 7,
+						"w": 317,
+						"h": 334
+					},
+					"frame": {
+						"x": 312,
+						"y": 667,
+						"w": 317,
+						"h": 334
+					}
+				},
+				{
+					"filename": "fail10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 5,
+						"w": 293,
+						"h": 336
+					},
+					"frame": {
+						"x": 631,
+						"y": 680,
+						"w": 293,
+						"h": 336
+					}
+				},
+				{
+					"filename": "fail8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 5,
+						"w": 289,
+						"h": 336
+					},
+					"frame": {
+						"x": 1,
+						"y": 1002,
+						"w": 289,
+						"h": 336
+					}
+				},
+				{
+					"filename": "fail2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 5,
+						"w": 325,
+						"h": 336
+					},
+					"frame": {
+						"x": 292,
+						"y": 1003,
+						"w": 325,
+						"h": 336
+					}
+				},
+				{
+					"filename": "fail9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 33,
+						"y": 5,
+						"w": 290,
+						"h": 336
+					},
+					"frame": {
+						"x": 619,
+						"y": 1018,
+						"w": 290,
+						"h": 336
+					}
+				},
+				{
+					"filename": "fail5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 40,
+						"y": 2,
+						"w": 282,
+						"h": 339
+					},
+					"frame": {
+						"x": 1,
+						"y": 1340,
+						"w": 282,
+						"h": 339
+					}
+				},
+				{
+					"filename": "fail4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 1,
+						"w": 283,
+						"h": 340
+					},
+					"frame": {
+						"x": 285,
+						"y": 1341,
+						"w": 283,
+						"h": 340
+					}
+				},
+				{
+					"filename": "fail3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 326,
+						"h": 341
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 0,
+						"w": 289,
+						"h": 341
+					},
+					"frame": {
+						"x": 570,
+						"y": 1356,
+						"w": 289,
+						"h": 341
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:a4d1fc8f43c1e73d3ad4063185d070a6:dcd2001f3bce29578d8a325f3909ea11:688651ce8a097310a834085629c4933f$"
+	}
+}
