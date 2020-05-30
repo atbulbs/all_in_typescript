@@ -64,6 +64,7 @@ export default class LoadingScene extends Phaser.Scene {
   // 加载资源
   private loadAssets () {
     
+
     // this.load.setPrefix(publicPath + 'static/')
     this.load.crossOrigin = 'anonymous'
     const pathPrefix = publicPath + 'static/'
