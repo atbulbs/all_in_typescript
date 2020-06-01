@@ -45,14 +45,6 @@ export default class BaseScene extends Phaser.Scene {
     }
   }
 
-  create () {
-    this.fitScreen()
-  }
-
-  protected transitionIn () {
-
-  }
-
   // 屏幕适配
   protected fitScreen () {
     // 根据设计稿的宽高比与视口的宽高比判断缩放的基准
@@ -75,9 +67,6 @@ export default class BaseScene extends Phaser.Scene {
       this.buildContentRect()
     }
 
-    console.warn('this.backgroundRect', this.backgroundRect)
-    console.warn('this.contentRect', this.contentRect)
-
     this.background = {
       top: this.backgroundRect.y,
       right: this.backgroundRect.x + window.innerWidth * window.devicePixelRatio,
@@ -86,12 +75,6 @@ export default class BaseScene extends Phaser.Scene {
       width: window.innerWidth * window.devicePixelRatio,
       height: window.innerHeight * window.devicePixelRatio
     }
-    console.warn('this.background', this.background)
-
-    this.input.on('pointerdown', e => {
-      console.warn('x', e.x)
-      console.warn('y', e.y)
-    })
 
     this.events.on('transitionstart', (fromScene, duration) => {
       this.cameras.main.x = window.innerWidth

@@ -1,5 +1,5 @@
 /**
- * @description 基础场景
+ * @description 写场景
  */
 
 // import { VP } from '../../../../workspace/vk-micro-sdk-game/src/vk-micro-sdk-game'

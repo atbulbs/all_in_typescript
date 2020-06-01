@@ -1,14 +1,17 @@
 /**
- * @description 基础场景
+ * @description 加载场景
  */
 import BaseScene from './base_scene'
 
 // import { VP } from '../../../../workspace/vk-micro-sdk-game/src/vk-micro-sdk-game'
 import { VP } from '../libs/ui/index'
+import imagesConfig from '../shared/images_config'
+import audiosConfig from '../shared/audios_config'
 
 const deployConfig = require('../../deploy.config')
 console.warn('deployConfig', deployConfig)
 const publicPath = deployConfig.cdn.publicPath
+
 
 export default class LoadScene extends BaseScene {
 
@@ -67,15 +70,19 @@ export default class LoadScene extends BaseScene {
   loadAssets () {
     const {top, left, width, height} = this.background
     this.add.rectangle(top, left, width, height, 0x6666ff)
-
-    // this.load.setPrefix(publicPath + 'static/')
     this.load.crossOrigin = 'anonymous'
     const pathPrefix = publicPath + 'static/'
-    const nextImageUrl = require('../../static/next.png')
-    const clickSoundUrl = require('../../static/click.mp3')
-    this.load.image('nextImage', nextImageUrl)
-    this.load.audio('clickSound', clickSoundUrl)
+
+    for (const key in imagesConfig) {
+      this.load.image(key, imagesConfig[key])
+    }
+    for (const key in audiosConfig) {
+      this.load.audio(key, audiosConfig[key])
+    }
+
     this.load.multiatlas('monsterFailSpriteAnimas', pathPrefix + 'monster_sprite.json')
+    this.load.multiatlas('soundPlayAnimas', pathPrefix + 'sound_sprite.json')
+
     ;(this.load as any).spine('monster_spine', pathPrefix + "monster_spine.json",  pathPrefix + "monster_spine.atlas")
 
     // const imageUrl = 'https://global.canon/en/environment/bird-branch/img/top-key-tobi-sp.jpg'
@@ -107,6 +114,7 @@ export default class LoadScene extends BaseScene {
       console.warn('complete')
       console.warn('this', this)
       this.build()
+      this.navigator.push('KnowScene')
     })
   }
 
