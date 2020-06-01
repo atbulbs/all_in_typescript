@@ -1,7 +1,11 @@
 
 import Phaser from 'phaser'
-import IndexScene from './scenes/index_scene'
-import LoadingScene from './scenes/loading_scene'
+import LoadScene from './scenes/load_scene'
+import KnowScene from './scenes/know_scene'
+import ReadScene from './scenes/read_scene'
+import WriteScene from './scenes/write_scene'
+import PracticeScene from './scenes/practice_scene'
+import ReportScene from './scenes/report_scene'
 import '../plugins/SpinePlugin.min.js'
 const TagTextPlugin:any = require('../plugins/rextagtext.3.17.0.min.js')
 
@@ -34,5 +38,9 @@ const game: Phaser.Game = new Phaser.Game({
 
 window['__PHASER_GAME__'] = game
 
-// game.scene.add('IndexScene', IndexScene)
-game.scene.add('IndexScene', LoadingScene, true)
+game.scene.add('LoadScene', LoadScene, true)
+game.scene.add('KnowScene', KnowScene)
+game.scene.add('ReadScene', ReadScene)
+game.scene.add('WriteScene', WriteScene)
+game.scene.add('PracticeScene', PracticeScene)
+game.scene.add('ReportScene', ReportScene)

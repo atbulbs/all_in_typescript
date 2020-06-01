@@ -9,7 +9,7 @@ const deployConfig = require('../../deploy.config')
 console.warn('deployConfig', deployConfig)
 const publicPath = deployConfig.cdn.publicPath
 
-export default class LoadingScene extends Phaser.Scene {
+export default class BaseScene extends Phaser.Scene {
 
   // 适配缩放比例
   protected zoom: number
@@ -21,92 +21,40 @@ export default class LoadingScene extends Phaser.Scene {
   protected viewRatio = window.innerWidth / window.innerHeight
   protected contentRect: Phaser.Geom.Rectangle
   protected backgroundRect: Phaser.Geom.Rectangle
+  protected background = {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+  }
+  protected navigator = {
+    push (nextSceneName: string) {}
+  }
 
-  constructor () {
-    super({ key: 'LoadingScene' })
+  constructor (sceneName: string) {
+    super({ key: sceneName })
+    this.navigator.push = nextSceneName => {
+      this.scene.transition({
+        target: nextSceneName,
+        moveBelow: false,
+        duration: 550,
+        data: {}
+      })
+    }
   }
 
   create () {
     this.fitScreen()
-    this.loadAssets()
   }
 
-  // 构建UI
-  private build () {
-     const frames = this.anims.generateFrameNames("monsterFailSpriteAnimas", { start: 0, end: 15, zeroPad: 1, prefix:'fail', suffix:'.png' })
-      this.anims.create({ key: "monsterFailSpriteAnimas", frames: frames, frameRate: 14, repeat: -1 })
-      const sprite = this.add.sprite(200, 200, 'monsterDefaultSpriteAnimas')
-      sprite.anims.play("monsterFailSpriteAnimas")
+  protected transitionIn () {
 
-      const spine = (this.add as any).spine(200, 500, 'monster_spine', 'fail', true)
-      spine.setScale(0.3)
-      const spineContainer = this.add.container(0, 0)
-      spineContainer.add(spine)
-
-      const nextBtn = this.add.image(375 / 2, 0, 'nextImage')
-      nextBtn.setOrigin(.5, .5)
-      nextBtn.setDisplaySize(375, 375)
-
-      const clickSound = this.sound.add('clickSound')
-
-      nextBtn.setInteractive()
-      nextBtn.on('pointerdown', () => {
-        clickSound.play()
-        this.scene.transition({
-          target: 'ReadScene',
-          moveBelow: false,
-          duration: 3000,
-          data: {}
-        })
-      })
-  }
-
-  // 加载资源
-  private loadAssets () {
-
-
-    // this.load.setPrefix(publicPath + 'static/')
-    this.load.crossOrigin = 'anonymous'
-    const pathPrefix = publicPath + 'static/'
-    const nextImageUrl = require('../../static/next.png')
-    const clickSoundUrl = require('../../static/click.mp3')
-    this.load.image('nextImage', nextImageUrl)
-    this.load.audio('clickSound', clickSoundUrl)
-    this.load.multiatlas('monsterFailSpriteAnimas', pathPrefix + 'monster_sprite.json')
-    ;(this.load as any).spine('monster_spine', pathPrefix + "monster_spine.json",  pathPrefix + "monster_spine.atlas")
-
-    // const imageUrl = 'https://global.canon/en/environment/bird-branch/img/top-key-tobi-sp.jpg'
-    // this.load.image('logo', imageUrl)
-    this.load.start()
-
-    const progressText = this.add.text(375 / 2, 667 / 2 + 30, '0%', {
-      color: '0xff0000',
-      fontSize: '18px'
-    }).setOrigin(.5)
-
-    const _r = new Phaser.Geom.Rectangle((375 - 200) / 2, 667 / 2, 200, 16)
-    const progressBar = new VP.ProgressBar(this , _r)
-    progressBar.setStyle(0xFF6B56 , 0x2E3606, 8)
-    progressBar.setValue(0, 1)
-
-    this.load.on('progress', e => {
-      const percentage = ((window as any).Math.floor(e * 100)) + '%'
-      progressText.setText(percentage)
-      const width = e > 0.1 ? e : 0.1
-      progressBar.setValue(width, 1)
-    })
-
-    this.load.on('complete', () => {
-      progressText.setText('100%')
-      progressBar.setValue(1, 1)
-      console.warn('complete')
-      console.warn('this', this)
-      this.build()
-    })
   }
 
   // 屏幕适配
-  private fitScreen () {
+  protected fitScreen () {
     // 根据设计稿的宽高比与视口的宽高比判断缩放的基准
     if (this.designRatio > this.viewRatio) {
       // 以宽为基准做缩放
@@ -117,10 +65,8 @@ export default class LoadingScene extends Phaser.Scene {
       this.zoom = window.innerHeight / this.designHeight
       this.backgroundRectX = -(window.innerWidth / this.zoom - this.designWidth) / 2
     }
-
     this.cameras.main.setZoom(this.zoom)
     this.cameras.main.setScroll(-(window.innerWidth - this.designWidth) / 2, -(window.innerHeight - this.designHeight) / 2)
-
     if (this.designRatio > this.viewRatio) {
       this.buildBackgroundRect()
       this.buildContentRect()
@@ -128,10 +74,41 @@ export default class LoadingScene extends Phaser.Scene {
       this.buildBackgroundRect()
       this.buildContentRect()
     }
+
+    console.warn('this.backgroundRect', this.backgroundRect)
+    console.warn('this.contentRect', this.contentRect)
+
+    this.background = {
+      top: this.backgroundRect.y,
+      right: this.backgroundRect.x + window.innerWidth * window.devicePixelRatio,
+      bottom: this.backgroundRect.y + window.innerHeight * window.devicePixelRatio,
+      left: this.backgroundRect.x,
+      width: window.innerWidth * window.devicePixelRatio,
+      height: window.innerHeight * window.devicePixelRatio
+    }
+    console.warn('this.background', this.background)
+
+    this.input.on('pointerdown', e => {
+      console.warn('x', e.x)
+      console.warn('y', e.y)
+    })
+
+    this.events.on('transitionstart', (fromScene, duration) => {
+      this.cameras.main.x = window.innerWidth
+      this.tweens.add({
+        targets: this.cameras.main,
+        x: 0,
+        y: 0,
+        duration: 500,
+        onCompleteScope: this,
+        onComplete: () => {
+        }
+      })
+    })
   }
 
   // 构建内容区域矩形
-  private buildContentRect () {
+  protected buildContentRect () {
     this.contentRect = new Phaser.Geom.Rectangle(0, 0, this.designWidth, this.designHeight)
     const contentRectGraphics = this.add.graphics({ lineStyle: { color: 0x0000ff, width: 7 } })
     contentRectGraphics.strokeRectShape(this.contentRect)
@@ -173,7 +150,7 @@ export default class LoadingScene extends Phaser.Scene {
   }
 
   // 构建背景区域矩形
-  private buildBackgroundRect () {
+  protected buildBackgroundRect () {
     this.backgroundRect = new Phaser.Geom.Rectangle(this.backgroundRectX, this.backgroundRectY, window.innerWidth / this.zoom, window.innerHeight / this.zoom)
     const backgroundRectGraphics = this.add.graphics({ lineStyle: { color: 0xff0000, width: 7 } })
     backgroundRectGraphics.strokeRectShape(this.backgroundRect)
