@@ -63,7 +63,7 @@ export default class LoadingScene extends Phaser.Scene {
 
   // 加载资源
   private loadAssets () {
-    
+
 
     // this.load.setPrefix(publicPath + 'static/')
     this.load.crossOrigin = 'anonymous'
@@ -75,7 +75,7 @@ export default class LoadingScene extends Phaser.Scene {
     this.load.multiatlas('monsterFailSpriteAnimas', pathPrefix + 'monster_sprite.json')
     ;(this.load as any).spine('monster_spine', pathPrefix + "monster_spine.json",  pathPrefix + "monster_spine.atlas")
 
-    // const imageUrl = 'https://user-gold-cdn.xitu.io/2020/5/27/172557d901ebf789?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1'
+    // const imageUrl = 'https://global.canon/en/environment/bird-branch/img/top-key-tobi-sp.jpg'
     // this.load.image('logo', imageUrl)
     this.load.start()
 
