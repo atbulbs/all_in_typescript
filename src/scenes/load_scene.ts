@@ -39,12 +39,14 @@ export default class LoadScene extends BaseScene {
   }
 
   create () {
+
     this.fitScreen()
+    const { top, left, width, height } = this.background
+    const graphics = this.add.graphics()
+    graphics.fillStyle(0xB4D61D, 1)
+    graphics.fillRect(left, top, width, height)
 
-    const {top, left, width, height} = this.background
-    this.add.rectangle(top, left, width, height, 0x6666ff)
-
-    const loadingSprite = this.add.sprite(375 / 2, 175, 'loadingAnimas', 'loading_00000.png')
+    const loadingSprite = this.add.sprite(375 / 2, 175 + 100, 'loadingAnimas', 'loading_00000.png')
     this.loadingSprite = loadingSprite
     loadingSprite.setSize(215, 215).setDisplaySize(215, 215)
     const loadingFrames = this.anims.generateFrameNames("loadingAnimas", { start: 0, end: 12, zeroPad: 2, prefix:'loading_000', suffix:'.png' })
@@ -59,10 +61,6 @@ export default class LoadScene extends BaseScene {
 
   // 构建UI
   build () {
-
-
-
-
     // const frames = this.anims.generateFrameNames("monsterFailSpriteAnimas", { start: 0, end: 15, zeroPad: 1, prefix:'fail', suffix:'.png' })
     // this.anims.create({ key: "monsterFailSpriteAnimas", frames: frames, frameRate: 14, repeat: -1 })
     // const sprite = this.add.sprite(200, 200, 'monsterDefaultSpriteAnimas')
@@ -73,17 +71,17 @@ export default class LoadScene extends BaseScene {
     // const spineContainer = this.add.container(0, 0)
     // spineContainer.add(spine)
 
-    const nextBtn = this.add.image(375 / 2, 500, 'nextImage')
-    nextBtn.setOrigin(.5, .5)
-    nextBtn.setDisplaySize(375 / 4, 375 / 4)
+    // const nextBtn = this.add.image(375 / 2, 500, 'nextImage')
+    // nextBtn.setOrigin(.5, .5)
+    // nextBtn.setDisplaySize(375 / 4, 375 / 4)
 
-    const clickSound = this.sound.add('clickSound')
+    // const clickSound = this.sound.add('clickSound')
 
-    nextBtn.setInteractive()
-    nextBtn.on('pointerdown', () => {
-      clickSound.play()
-      this.navigator.push('KnowScene')
-    })
+    // nextBtn.setInteractive()
+    // nextBtn.on('pointerdown', () => {
+    //   clickSound.play()
+    //   this.navigator.push('KnowScene')
+    // })
   }
 
   transitionIn () {
@@ -103,6 +101,11 @@ export default class LoadScene extends BaseScene {
       this.load.audio(key, audiosConfig[key])
     }
 
+    var url;
+
+    // url = 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rextagtextplugin.min.js';
+    // this.load.plugin('rextagtextplugin', url, true);
+
     this.load.multiatlas('monsterFailSpriteAnimas', pathPrefix + 'monster_sprite.json')
     this.load.multiatlas('monsterShowSpriteAnimas1', pathPrefix + 'monster_show1_sprite_new.json')
     this.load.multiatlas('monsterShowSpriteAnimas2', pathPrefix + 'monster_show2_sprite.json')
@@ -115,8 +118,8 @@ export default class LoadScene extends BaseScene {
     // this.load.image('logo', imageUrl)
     this.load.start()
 
-    const progressText = this.add.text(375 / 2, 667 / 2 + 35, '0%', {
-      color: '0xffffff',
+    const progressText = this.add.text(375 / 2, 667 / 2 + 35 + 100, '0%', {
+      color: 'white',
       fontSize: 20,
       fontFamily: FONT_FAMILY
     }).setOrigin(.5)
@@ -128,7 +131,7 @@ export default class LoadScene extends BaseScene {
       const width = e > 0.1 ? e : 0.1
       if (e > .1) {
         if (!progressBar) {
-          const _r = new Phaser.Geom.Rectangle((375 - 200) / 2, 667 / 2, 200, 16)
+          const _r = new Phaser.Geom.Rectangle((375 - 200) / 2, 667 / 2 + 100, 200, 16)
           progressBar = new VP.ProgressBar(this , _r)
           progressBar.setStyle(0xFFDD00 , 0x2E3606, 8)
           progressBar.setValue(0, 1)

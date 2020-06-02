@@ -65,20 +65,27 @@ export default class KnowScene extends BaseScene {
 
     // 文字四选一模板
     const sta01 = new Sta01(this, this.templateConainer, {})
-
-    // 图片四选一模板
-    const sta03 = new Sta03(this, this.templateConainer, {})
-    sta03.onSubmit(res => {
+    sta01.onSubmit(res => {
       this.handleSubmit(res)
-      if (res.isRight) {
-        sta03.destroy()
+      if (res.isCorrect) {
+        // sta01.destroy()
       }
     })
-    const particles = new Particles(this)
-    new MonsterModal(this).onHide(() => {
-      sta03.playAudio()
-      particles.show()
-    })
+
+
+    // 图片四选一模板
+    // const sta03 = new Sta03(this, this.templateConainer, {})
+    // sta03.onSubmit(res => {
+    //   this.handleSubmit(res)
+    //   if (res.isCorrect) {
+    //     sta03.destroy()
+    //   }
+    // })
+    // const particles = new Particles(this)
+    // new MonsterModal(this).onHide(() => {
+    //   // sta03.playAudio()
+    //   particles.show()
+    // })
 
 
 

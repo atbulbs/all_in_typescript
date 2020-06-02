@@ -86,7 +86,6 @@ export default class Sta03 extends Phaser.GameObjects.Container implements BaseT
         color: '0x353535',
         fontSize: 30,
         fontFamily: FONT_FAMILY,
-
       }).setOrigin(.5)
       this.add(text)
     }
@@ -129,7 +128,7 @@ export default class Sta03 extends Phaser.GameObjects.Container implements BaseT
       const line = graphics.strokeRoundedRect(x, y, 125, 125, 8)
       this.add(line)
       this.handleSubmit({
-        isRight: false,
+        isCorrect: false,
       })
       this.tip()
       setTimeout(() => {

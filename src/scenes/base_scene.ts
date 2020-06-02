@@ -73,8 +73,15 @@ export default class BaseScene extends Phaser.Scene {
       bottom: this.backgroundRect.y + window.innerHeight * window.devicePixelRatio,
       left: this.backgroundRect.x,
       width: window.innerWidth * window.devicePixelRatio,
-      height: window.innerHeight * window.devicePixelRatio
+      height: window.innerHeight * window.devicePixelRatio,
     }
+
+    // console.warn('this.background', this.background)
+
+    // this.input.on('pointerdown', e => {
+    //   console.warn('x', e.x)
+    //   console.warn('y', e.y)
+    // })
 
     this.events.on('transitionstart', (fromScene, duration) => {
       this.cameras.main.x = window.innerWidth
