@@ -3,7 +3,7 @@
  */
 
 // import { VP } from '../../../../workspace/vk-micro-sdk-game/src/vk-micro-sdk-game'
-import { VP } from '../libs/ui/index'
+// import { VP } from '../libs/ui/index'
 
 const deployConfig = require('../../deploy.config')
 console.warn('deployConfig', deployConfig)
@@ -21,7 +21,7 @@ export default class BaseScene extends Phaser.Scene {
   protected viewRatio = window.innerWidth / window.innerHeight
   protected contentRect: Phaser.Geom.Rectangle
   protected backgroundRect: Phaser.Geom.Rectangle
-  protected background = {
+  public background = {
     top: 0,
     right: 0,
     bottom: 0,

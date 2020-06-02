@@ -5,10 +5,17 @@
 // import { VP } from '../../../../workspace/vk-micro-sdk-game/src/vk-micro-sdk-game'
 import { VP } from '../libs/ui/index'
 import BaseScene from './base_scene'
+import MonsterModal from '../components/monster_modal'
 import Sta01 from '../templates/sta01'
 import Sta03 from '../templates/sta03'
 
+import Particles from '../components/particles'
+
 export default class KnowScene extends BaseScene {
+
+  private _sectionList: Array<any> = []
+
+  templateConainer
 
   constructor () {
     super('KnowScene')
@@ -26,13 +33,13 @@ export default class KnowScene extends BaseScene {
     const graphics = this.add.graphics()
     graphics.fillStyle(0xFFFCEC, 1)
     const contentBackground = graphics.fillRoundedRect(0, 0, 345, 505, 10)
-    const contentContainer = this.add.container(15, 93.5)
-    contentContainer.add(contentBackground)
+    this.templateConainer = this.add.container(15, 93.5)
+    this.templateConainer.add(contentBackground)
 
 
     // const contentBackground = this.add.rectangle(0, 0, 100, 100, 0xff0000)
     // // contentBackground.setOrigin(.5)
-    // contentContainer.add(contentBackground)
+    // templateConainer.add(contentBackground)
 
     // this.add.rectangle(top, left, width, height, 0x9966ff)
 
@@ -56,11 +63,30 @@ export default class KnowScene extends BaseScene {
     // })
 
 
+    // 文字四选一模板
+    const sta01 = new Sta01(this, this.templateConainer, {})
 
-    const sta01 = new Sta01(this, contentContainer, {})
-    const sta03 = new Sta03(this, contentContainer, {})
+    // 图片四选一模板
+    const sta03 = new Sta03(this, this.templateConainer, {})
+    sta03.onSubmit(res => {
+      this.handleSubmit(res)
+      if (res.isRight) {
+        sta03.destroy()
+      }
+    })
+    const particles = new Particles(this)
+    new MonsterModal(this).onHide(() => {
+      sta03.playAudio()
+      particles.show()
+    })
 
 
+
+  }
+
+  // 处理模板的提交
+  handleSubmit (res) {
+    console.warn('res', res)
   }
 
 }

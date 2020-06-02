@@ -1,19 +1,14 @@
 export default abstract class BaseTemplate {
 
-  cb
+  constructor (scene: Phaser.Scene, parent: Phaser.GameObjects.Container, config: Object) {}
 
+  // 构建UI
+  build (): void {}
 
-  constructor (scene, parent, data) {
+  // 监听提交
+  onSubmit (handleSubmit: Function = (res: Object) => {}): void {}
 
-  }
-
-  check () {
-
-  }
-
-  onSubmit (cb) {
-    this.cb = cb
-  }
-
+  // 处理销毁, 移除事件监听
+  handleDestroy () {}
 
 }

@@ -9,6 +9,10 @@ const imagesConfig = {
   'nextImage': url('next.png'),
   'speaker_normal': url('speaker_normal.png'),
   'speaker_play': url('speaker_play.png'),
+  'mock_car': url('mock_car.jpg'),
+  'mock_book': url('mock_book.jpg'),
+  'mock_shine': url('mock_shine.jpg'),
+  'mock_letters': url('mock_letters.jpg'),
 }
 
 export default imagesConfig

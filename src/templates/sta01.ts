@@ -19,17 +19,18 @@
 import Base from './base_template'
 
 export default class Sta01 implements Base {
-  cb
+  handleSubmit
 
   constructor (scene, parent, data) {
 
   }
 
-  check () {
+  build () {}
 
+  onSubmit (handleSubmit) {
+    this.handleSubmit = handleSubmit
   }
 
-  onSubmit (cb) {
-    this.cb = cb
-  }
+  handleDestroy () {}
+  
 }

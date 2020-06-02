@@ -14,7 +14,7 @@ const game: Phaser.Game = new Phaser.Game({
   // type: Phaser.CANVAS,
   width: window.innerWidth,
   height: window.innerHeight,
-  resolution: window.devicePixelRatio || 1,
+  resolution: window.devicePixelRatio * 1.2 || 1,
   autoFocus: true,
   transparent: true,
   plugins: {
