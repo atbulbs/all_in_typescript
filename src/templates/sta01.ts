@@ -41,7 +41,7 @@ export default class Sta01 extends Container implements Base {
     this.scene.add.existing(this)
     config = {
       text: 'When I was young I\'d listen to the radio, Waiting for my <class="highlight">     </class> songs, When they played I\'d sing along, it made me smile.',
-      sound: 'mock_shine',
+      sound: 'shine',
       answerKey: 'a',
       selections: [
         {

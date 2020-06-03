@@ -10,12 +10,13 @@ const imagesConfig = {
   'speaker_normal': url('speaker_normal.png'),
   'speaker_play': url('speaker_play.png'),
   'correct_star': url('correct_star.png'),
+  'backspace': url('backspace.png'),
 
   // mock数据
-  'mock_car': url('mock_car.jpg'),
-  'mock_book': url('mock_book.jpg'),
-  'mock_shine': url('mock_shine.jpg'),
-  'mock_letters': url('mock_letters.jpg'),
+  'car': url('car.jpg'),
+  'book': url('book.jpg'),
+  'shine': url('shine.jpg'),
+  'letters': url('letters.jpg'),
 }
 
 export default imagesConfig

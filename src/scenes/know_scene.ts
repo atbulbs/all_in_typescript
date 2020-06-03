@@ -8,6 +8,7 @@ import BaseScene from './base_scene'
 import MonsterModal from '../components/monster_modal'
 import Sta01 from '../templates/sta01'
 import Sta03 from '../templates/sta03'
+import Wtd01 from '../templates/wtd01'
 
 import Particles from '../components/particles'
 
@@ -64,13 +65,13 @@ export default class KnowScene extends BaseScene {
 
 
     // 文字四选一模板
-    const sta01 = new Sta01(this, this.templateConainer, {})
-    sta01.onSubmit(res => {
-      this.handleSubmit(res)
-      if (res.isCorrect) {
-        // sta01.destroy()
-      }
-    })
+    // const sta01 = new Sta01(this, this.templateConainer, {})
+    // sta01.onSubmit(res => {
+    //   this.handleSubmit(res)
+    //   if (res.isCorrect) {
+    //     // sta01.destroy()
+    //   }
+    // })
 
 
     // 图片四选一模板
@@ -86,6 +87,15 @@ export default class KnowScene extends BaseScene {
     //   // sta03.playAudio()
     //   particles.show()
     // })
+
+    // 填空题
+    const wtd01 = new Wtd01(this, this.templateConainer, {})
+    wtd01.onSubmit(res => {
+      this.handleSubmit(res)
+      if (res.isCorrect) {
+        // wtd01.destroy()
+      }
+    })
 
 
 

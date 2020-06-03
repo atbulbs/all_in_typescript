@@ -36,22 +36,22 @@ export default class Sta03 extends Phaser.GameObjects.Container implements BaseT
     this.parent.add(this)
     this.config = {
       text: 'shine',
-      sound: 'mock_shine',
+      sound: 'shine',
       selections: [
         {
-          image: 'mock_book',
+          image: 'book',
           key: 'book',
         },
         {
-          image: 'mock_car',
+          image: 'car',
           key: 'car',
         },
         {
-          image: 'mock_shine',
+          image: 'shine',
           key: 'shine',
         },
         {
-          image: 'mock_letters',
+          image: 'letters',
           key: 'letters',
         },
       ]
