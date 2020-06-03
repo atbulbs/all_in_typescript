@@ -50,6 +50,8 @@ export default class Wtd01 extends Container implements Base {
   interactiveElements: Array<any> = []
   isAlive: boolean = true
   blankText
+  textEnCache
+  backSpace
 
   constructor (scene: Phaser.Scene, parent: Phaser.GameObjects.Container, config: Object) {
     super(scene)
@@ -89,6 +91,7 @@ export default class Wtd01 extends Container implements Base {
         },
       ]
     }
+    this.textEnCache = this.config.textEn
     this.build()
     this.on('destroy', () => {
       this.handleDestroy()
@@ -145,13 +148,16 @@ export default class Wtd01 extends Container implements Base {
     this.add(this.blankText)
     // 回删按钮
     const backSpace = this.scene.add.image(313.5, 278, 'backspace')
+    this.backSpace = backSpace
     backSpace.setDisplaySize(29.5, 19)
     backSpace.setOrigin(.5)
     backSpace.setAlpha(0)
     backSpace.setInteractive()
     backSpace.on('pointerdown', () => {
       backSpace.once('pointerup', () => {
-
+        this.textEnCache = this.config.textEn
+        this.blankText.setText(this.textEnCache)
+        backSpace.setAlpha(0)
       })
     })
     this.add(backSpace)
@@ -205,11 +211,12 @@ export default class Wtd01 extends Container implements Base {
       blockItemContainer.setInteractive(new Phaser.Geom.Rectangle(0, 0, width, height), Phaser.Geom.Rectangle.Contains)
       blockItemContainer.on('pointerdown', () => {
         blockItemContainer.once('pointerup', () => {
+          this.backSpace.setAlpha(1)
           console.warn('index', index)
-          this.config.textEn = this.config.textEn.replace(/\>(\s+)\</, $1 => {
+          this.textEnCache = this.textEnCache.replace(/\>(\s+)\</, $1 => {
             return '>' + item.text + '<'
           })
-          this.blankText.setText(this.config.textEn)
+          this.blankText.setText(this.textEnCache)
         })
       })
       blocksContainer.add(blockItemContainer)
