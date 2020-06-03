@@ -1,1 +1,1 @@
-> dev: http://172.24.89.44:8000/
+> dev: http://localhost:8000/
